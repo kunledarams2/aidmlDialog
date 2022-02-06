@@ -35,29 +35,28 @@ class Installation(private  val context: Context) {
     @SuppressLint("ResourceType")
     private fun setFABView(constraintLayout: ConstraintLayout) {
 
-        /* val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-         layoutParams.setMargins(32, 102, 32, constraintLayout.bottom)*/
-
-        // clone parent constraintLayout
+        /** clone parent constraintLayout**/
         val set = ConstraintSet()
         set.clone(constraintLayout)
 
-
+        /**set up floatActionButton**/
         floatingActionButton = FloatingActionButton(context)
-//        floatingActionButton!!.layoutParams = layoutParams
         floatingActionButton!!.id = 1002
 
-        floatingActionButton!!.setMaxImageSize(50)
+        floatingActionButton!!.setMaxImageSize(40)
         floatingActionButton!!.setImageResource(R.drawable.ic_outline_play_arrow_24)
+        floatingActionButton!!.setRippleColor(ColorStateList.valueOf(Color.WHITE))
         floatingActionButton!!.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#5597FB"))
 
         floatingActionButton!!.setOnClickListener { openInstallationDialog() }
         constraintLayout.addView(floatingActionButton)
 
-        set.connect(floatingActionButton!!.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 20)
-        set.connect(floatingActionButton!!.id, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, 30)
+        /**connect the floatingActionButton to constrainLayout**/
+        set.connect(floatingActionButton!!.id, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 40)
+        set.connect(floatingActionButton!!.id, ConstraintSet.RIGHT, ConstraintSet.PARENT_ID, ConstraintSet.RIGHT, 40)
 //       set.connect(floatingActionButton!!.id,ConstraintSet.LEFT,ConstraintSet.PARENT_ID,ConstraintSet.LEFT,20)
         set.constrainHeight(floatingActionButton!!.id, 90)
+        set.constrainWidth(floatingActionButton!!.id, 90)
         set.applyTo(constraintLayout)
 
 
