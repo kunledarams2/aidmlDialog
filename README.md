@@ -36,7 +36,7 @@ A library that show dialog contain current time and date when click on floating 
 
         Installation(this).initInstallation(frame)
  
- where is the id of your ConstraintLayout
+ where frame is the id of your ConstraintLayout
  
 
  
